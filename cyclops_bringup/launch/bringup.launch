@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ROBOT_OUTPUT_METHOD" default="screen"/>
+    <arg name="ROBOT_RESPAWN" default="false"/>
+
+    <!-- BASE CONTROLLER ROSSERIAL -->
+    <node name="cyclops_base_controller" pkg="rosserial_python" type="serial_node.py" output="$(arg ROBOT_OUTPUT_METHOD)" respawn="$(arg ROBOT_RESPAWN)">
+        <rosparam command="load" subst_value="True" file="$(find cyclops_bringup)/config/base_diffdrive.yaml"/>
+        <param name="port" value="/dev/cyclops"/>
+        <param name="baud" value="912600"/>
+    </node>
+</launch>

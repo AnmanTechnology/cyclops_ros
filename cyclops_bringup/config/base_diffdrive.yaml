@@ -1,0 +1,27 @@
+# Motor Encoder Drive 
+wheel_params: [110.0, 990.0] # MOTOR_RPM [rpm], ENCODER_PPR [ppr]
+wheel_pid: [3.0, 0.1, 0.0] # Kp, TauI, TauD
+
+# ROBOT
+wheel_radius: 0.0335 # WHEEL_RADIUS [m]
+wheel_separation: 0.225 # WHEEL_SEPARATION [m]
+# turning_radius: 0 # m robot turning radius UNUSED
+# wheel_radius_left_mul: 1.0 #adjust left wheel radius UNUSED
+# wheel_radius_right_mul: 1.0 #adjust right wheel radius UNUSED
+# wheel_separation_mul: 1.0 #adjust wheel separation UNUSED
+
+# Control
+cmd_vel_timeout: 600 # millisec for timeout 
+max_linear_vel: 0.3 # m/s
+max_angular_vel: 90.0 # deg/s
+# max_linear_accel: 1.0 # m/s^2 UNUSED
+# max_angular_accel: 180.0 # deg/s^2 UNUSED
+
+# Odometry TF
+publish_rate: 40.0 # Odom and TF Publish rate [Hz] ** MAX 50 Hz **
+enable_odom_tf: True
+use_imu: False
+
+# Diagonal of the covariance matrix for odometry pose publishing 
+pose_covariance_diagonal: [-1.0, 0.0, 0.0] #cov x, y, yaw
+twist_covariance_diagonal: [-1.0, 0.0] #cov vx, vyaw
