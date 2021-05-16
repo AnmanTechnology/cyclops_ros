@@ -9,6 +9,11 @@ project(cyclops_bringup)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rosserial_python
+  # roscpp
+  # tf
+  # hardware_interface
+  # controller_manager
+  # serial
 )
 
 ## System dependencies are found with CMake's conventions
@@ -103,7 +108,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES cyclops_bringup
-#  CATKIN_DEPENDS rosserial
+ CATKIN_DEPENDS rosserial # roscpp hardware_interface controller_manager serial
 #  DEPENDS system_lib
 )
 
@@ -114,8 +119,9 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  # include
   ${catkin_INCLUDE_DIRS}
+  ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
 ## Declare a C++ library
@@ -202,3 +208,12 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+# add_executable(cyclops_base
+#   # include/cyclops_base/cyclops_base.h
+#   src/cyclops_base.cpp
+# )
+# add_dependencies(cyclops_base ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(cyclops_base
+#   ${catkin_LIBRARIES}
+# )

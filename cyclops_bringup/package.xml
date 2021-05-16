@@ -16,6 +16,7 @@
   <author email="wuttipat.cho@anman.co.th">Liew Wuttipat</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>rosserial</exec_depend>
   <build_depend>rosserial_python</build_depend>
   <build_export_depend>rosserial_python</build_export_depend>
   <exec_depend>rosserial_python</exec_depend>

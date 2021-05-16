@@ -1,0 +1,45 @@
+############## Differential Drive ##############
+cyclops_base_controller:
+  # BASETYPE
+  # 0 => joint_control 
+  # 1 => diff_drive **developing
+  # 2 => skidsteer_drive **developing
+  # 3 => omni3_drive **developing
+  # 4 => omni4_drive **developing
+  # 5 => mecanum_drive **developing
+  # 6 => ackermann_drive **developing
+  base_type: 1
+  
+  cmd_vel_timeout: 600 # millisec for timeout 
+  enable_odom_tf: True
+  use_imu: True
+
+  max_linear_vel: 0.3 # m/s x axis
+  max_angular_vel: 90.0 # deg/s 
+  # max_linear_accel: 5.0 # m/s^2 **developing
+  # max_angular_accel: 380.0 # deg/s^2 **developing
+
+  left_wheel: #[MotorEnc1]
+    motor_rpm: 100 # MOTOR_MAX_RPM [rpm]
+    encoder_ppr: 32000 # ENCODER_COUNT_PER_REV [ppr]
+    pid: [3.0, 0.1, 0.0]  # Kp, TauI, TauD
+  right_wheel: #[MotorEnc2]
+    motor_rpm: 100 # MOTOR_MAX_RPM [rpm]
+    encoder_ppr: 32000 # ENCODER_COUNT_PER_REV [ppr]
+    pid: [3.0, 0.1, 0.0]  # Kp, TauI, TauD
+
+  wheel_radius: 0.073 # WHEEL_RADIUS [m]
+  wheel_separation: 0.45 # WHEEL_SEPARATION [m] 
+  
+ 
+
+  # Diagonal of the covariance matrix for odometry pose publishing 
+  pose_covariance_diagonal: [-1.0, 0.0, 0.0] #cov x, y, yaw
+  twist_covariance_diagonal: [-1.0, 0.0] #cov vx, vyaw
+###################################################
+
+# diff_drive => left [MotorEnc1], right [MotorEnc2]
+# skidsteer_drive => front_left [MotorEnc1], front_right [MotorEnc2], rear_left [MotorEnc3], rear_right [MotorEnc4]
+# omni3_drive => mot1 [MotorEnc1], mot2 [MotorEnc2], mot3 [MotorEnc3]
+# omni4_drive => mot1 [MotorEnc1], mot2 [MotorEnc2], mot3 [MotorEnc3], mot4 [MotorEnc4]
+# mecanum_drive => mot1 [MotorEnc1], mot2 [MotorEnc2], mot3 [MotorEnc3], mot4 [MotorEnc4]

@@ -1,1 +1,5 @@
 .vscode
+cyclops_bringup/src/cyclops_base.cpp
+cyclops_bringup/launch/joint_control.launch
+cyclops_bringup/config/_joint_control.yaml
+cyclops_bringup/config/_base_mecanum_drive.yaml
