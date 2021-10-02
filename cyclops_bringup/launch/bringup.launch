@@ -7,7 +7,7 @@
   <!-- BASE CONTROLLER ROSSERIAL -->
   <!-- <group ns="robot"> -->
   <!-- </group> -->
-  <rosparam command="load" subst_value="True" file="$(find cyclops_bringup)/config/base_true_robot.yaml"/>
+  <rosparam command="load" subst_value="True" file="$(find cyclops_bringup)/config/base_robot.yaml"/>
 
   <node name="cyclops_base_controller" pkg="rosserial_python" type="serial_node.py" output="$(arg ROBOT_OUTPUT_METHOD)" respawn="$(arg ROBOT_RESPAWN)">
     <param name="port" value="/dev/cyclops"/>
